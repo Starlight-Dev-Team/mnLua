@@ -1,0 +1,1 @@
+Provide [Visual Studio Code](https://code.visualstudio.com/) with syntax support for [Miniworld Lua Script](https://dev-wiki.mini1.cn/cyclopdeia?wikiMenuId=3&wikiId=1693).
