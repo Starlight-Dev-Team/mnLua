@@ -2,15 +2,17 @@
   "name": "mnlua",
   "displayName": "Miniworld Lua Script",
   "description": "Highlight syntax for Miniworld Lua Script.",
-  "version": "0.0.1",
+  "version": "0.1.0_screenshot",
   "engines": {
-    "vscode": "^1.73.0"
+    "vscode": "^1.0.0"
   },
   "categories": [
-    "Other"
+    "Keymaps",
+    "Linters",
+    "Programming Languages"
   ],
   "activationEvents": [],
-  "main": "./out/main.js",
+  "main": "./build/main.js",
   "contributes": {},
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -18,7 +20,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./build/test/runTest.js"
   },
   "devDependencies": {
     "@types/vscode": "^1.73.0",
