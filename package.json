@@ -12,7 +12,7 @@
     "Programming Languages"
   ],
   "activationEvents": [],
-  "main": "./build/main.js",
+  "main": "./build/extension.js",
   "contributes": {},
   "scripts": {
     "vscode:prepublish": "npm run compile",
