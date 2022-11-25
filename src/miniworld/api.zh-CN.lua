@@ -13,7 +13,7 @@ ErrorCode = {
 
 
 ---游戏事件枚举。
----@alias EventMsg
+---@alias __EventMsg
 ---|'Game.Load' # 游戏加载中
 ---|'Game.Start' # 游戏启动
 ---|'Game.Run' # 游戏运行中
@@ -86,11 +86,11 @@ ErrorCode = {
 ---|'Plot.begin' # 剧情开始
 ---|'Plot.end' # 剧情结束
 
----@alias EventCallbackParam table # 事件回调参数。
+---@alias __EventCallbackParam table # 事件回调参数。
 
----@alias EventCallback fun(param?: EventCallbackParam) # 事件回调函数。
+---@alias __EventCallback fun(param?: __EventCallbackParam) # 事件回调函数。
 
----@alias EventListenerId integer # 事件监听ID。
+---@alias __EventListenerId integer # 事件监听ID。
 
 
 
@@ -102,17 +102,17 @@ ScriptSupportEvent = {}
 
 
 ---监听事件。
----@param msg EventMsg # 监听的事件名
----@param func EventCallback # 事件触发时调用的函数。
----@return ErrorCode, EventListenerId # 监听ID
+---@param msg __EventMsg # 监听的事件名
+---@param func __EventCallback # 事件触发时调用的函数。
+---@return ErrorCode, __EventListenerId # 监听ID
 ---[查看文档](https://dev-wiki.mini1.cn/cyclopdeia?wikiMenuId=3&wikiId=1353)
 ---
 ------
 function ScriptSupportEvent:registerEvent(msg, func) end
 
 ---取消监听事件。
----@param msg EventMsg # 需要取消的监听的事件名
----@param funcid EventListenerId # 需要取消的监听ID
+---@param msg __EventMsg # 需要取消的监听的事件名
+---@param funcid __EventListenerId # 需要取消的监听ID
 ---[查看文档](https://dev-wiki.mini1.cn/cyclopdeia?wikiMenuId=3&wikiId=1353)
 ---
 ------
@@ -134,20 +134,20 @@ GameRule = {}
 ---@type integer
 GameRule.CurTime = nil
 
----@alias GameRuleTimeLocked
+---@alias __GameRuleTimeLocked
 ---| 0 # 不锁定时间
 ---| 1 # 锁定时间
 ---编辑模式设定的是否锁定时间。
----@type GameRuleTimeLocked
+---@type __GameRuleTimeLocked
 GameRule.TimeLocked = nil
 
----@alias GameRuleWeather
+---@alias __GameRuleWeather
 ---| 0 # 晴雨交错
 ---| 1 # 晴天
 ---| 2 # 雨天
 ---| 3 # 雷暴
 ---编辑模式设定的天气。
----@type GameRuleWeather
+---@type __GameRuleWeather
 GameRule.Weather = nil
 
 ---编辑模式设定的最大玩家数量。
@@ -155,36 +155,36 @@ GameRule.Weather = nil
 GameRule.MaxPlayers = nil
 
 ---破坏方块权限。
----@alias GameRuleBlockDestroy
+---@alias __GameRuleBlockDestroy
 ---| 0 # 禁止破坏方块
 ---| 1 # 允许破坏方块
 ---是否可破坏方块。
----@type GameRuleBlockDestroy
+---@type __GameRuleBlockDestroy
 GameRule.BlockDestroy = nil
 
 ---放置方块权限。
----@alias GameRuleBlockPlace
+---@alias __GameRuleBlockPlace
 ---| 0 # 禁止放置方块
 ---| 1 # 允许放置方块
 ---是否可放置方块。
----@type GameRuleBlockPlace
+---@type __GameRuleBlockPlace
 GameRule.GameRuleBlockPlace = nil
 
 ---方块交互权限。
----@alias GameRuleBlockUse
+---@alias __GameRuleBlockUse
 ---| 0 # 禁止与方块交互
 ---| 1 # 允许与方块交互
 ---是否可与方块交互。
----@type GameRuleBlockUse
+---@type __GameRuleBlockUse
 GameRule.BlockUse = nil
 
 ---有效值应处于0.1~10之间。
----@alias GravityFactor number
+---@alias __GravityFactor number
 ---重力倍数。
----@type GravityFactor
+---@type __GravityFactor
 GameRule.GravityFactor = nil
 
----@alias GameRuleCameraDir
+---@alias __GameRuleCameraDir
 ---| 0 # 主视角
 ---| 1 # 背视角
 ---| 2 # 正视角
@@ -196,15 +196,15 @@ GameRule.GravityFactor = nil
 ---| 8 # 背视角2
 ---| 9 # 锁定背视角2
 ---设定的视角。
----@type GameRuleCameraDir
+---@type __GameRuleCameraDir
 GameRule.CameraDir = nil
 
----@alias GameRuleStartMode
+---@alias __GameRuleStartMode
 ---| 0 # 房主开启
 ---| 1 # 达到人数自动开启
 ---| 2 # 不限条件自动开启
 ---游戏开始条件。
----@type GameRuleStartMode
+---@type __GameRuleStartMode
 GameRule.StartMode = nil
 
 ---开始游戏最少人数。
@@ -215,12 +215,12 @@ GameRule.StartPlayers = nil
 ---@type integer
 GameRule.TeamNum = nil
 
----@alias GameRuleAttackPlayerMode
+---@alias __GameRuleAttackPlayerMode
 ---| 0 # 队伍间攻击
 ---| 1 # 禁止攻击玩家
 ---| 2 # 自由攻击
 ---玩家攻击规则。
----@type GameRuleAttackPlayerMode
+---@type __GameRuleAttackPlayerMode
 GameRule.AttackPlayerMode = nil
 
 ---游戏限时。
@@ -273,37 +273,37 @@ GameRule.ReviveMode = nil
 ---@type integer
 GameRule.ReviveInvulnerable = nil
 
----@alias GameRuleDisplayName
+---@alias __GameRuleDisplayName
 ---| 0 # 所有人可见
 ---| 1 # 仅同队伍可见
 ---| 2 # 仅不同队伍可见
 ---| 3 # 全部不可见
 ---
 ---玩家昵称显示规则。
----@type GameRuleDisplayName
+---@type __GameRuleDisplayName
 GameRule.DisplayName = nil
 
----@alias GameRuleWinLoseEndTime
+---@alias __GameRuleWinLoseEndTime
 ---| 0 # 分数最高的队伍胜
 ---| 1 # 全体胜利
 ---| 2 # 全体失败
 ---
 ---限时结束后胜利规则。
----@type GameRuleWinLoseEndTime
+---@type __GameRuleWinLoseEndTime
 GameRule.WinLoseEndTime = nil
 
----@alias GameRuleSaveMode
+---@alias __GameRuleSaveMode
 ---| 0 # 重置
 ---| 1 # 不重置
 ---退出地图后是否重置。
----@type GameRuleSaveMode
+---@type __GameRuleSaveMode
 GameRule.SaveMode = nil
 
----@alias GameRuleKillNotify
+---@alias __GameRuleKillNotify
 ---| 0 # 不提示
 ---| 1 # 提示
 ---击杀玩家全局提示。
----@type GameRuleKillNotify
+---@type __GameRuleKillNotify
 GameRule.KillNotify = nil
 
 ---背景音乐。
@@ -314,42 +314,42 @@ GameRule.KillNotify = nil
 ---@type integer
 GameRule.BgMusicMode = nil
 
----@alias GameRuleMobGen
+---@alias __GameRuleMobGen
 ---| -1 # 地图创建时禁止生成
 ---| 0 # 不生成
 ---| 1 # 生成
 ---怪物生成规则。
----@type GameRuleMobGen
+---@type __GameRuleMobGen
 GameRule.MobGen = nil
 
----@alias GameRuleSpawnPtMode
+---@alias __GameRuleSpawnPtMode
 ---| 0 # 到随机的队伍重生点
 ---| 1 # 到最近的队伍重生点
 ---重生位置规则。
----@type GameRuleSpawnPtMode
+---@type __GameRuleSpawnPtMode
 GameRule.SpawnPtMode = nil
 
----@alias GameRuleMinimapTeams
+---@alias __GameRuleMinimapTeams
 ---| 0 # 显示所有人
 ---| 1 # 仅显示同队伍玩家
 ---小地图显示规则。
----@type GameRuleMinimapTeams
+---@type __GameRuleMinimapTeams
 GameRule.MinimapTeams = nil
 
----@alias GameRulePlayerDieDrops
+---@alias __GameRulePlayerDieDrops
 ---| 0 # 正常掉落
 ---| 1 # 清空背包
 ---| 2 # 保留物品
 ---| 3 # 掉落箱子
 ---设定的玩家战败是否掉落物品
----@type GameRulePlayerDieDrops
+---@type __GameRulePlayerDieDrops
 GameRule.PlayerDieDrops = nil
 
----@alias GameRuleDisplayScore
+---@alias __GameRuleDisplayScore
 ---| 0 # 不显示比分和时间
 ---| 1 # 显示比分和时间
 ---比分和时间显示规则。
----@type GameRuleDisplayScore
+---@type __GameRuleDisplayScore
 GameRule.DisplayScore = nil
 
 ---生命数限制。
@@ -360,18 +360,18 @@ GameRule.DisplayScore = nil
 ---@type integer
 GameRule.LifeNum = nil
 
----@alias GameRuleShowSight
+---@alias __GameRuleShowSight
 ---| 0 # 不显示准星
 ---| 1 # 显示准星
 ---准星显示规则。
----@type GameRuleShowSight
+---@type __GameRuleShowSight
 GameRule.ShowSight = nil
 
----@alias GameRuleGPoisonSwitch
+---@alias __GameRuleGPoisonSwitch
 ---| 0 # 关闭污染区规则
 ---| 1 # 开启污染区规则
 ---污染区开启规则。
----@type GameRuleGPoisonSwitch
+---@type __GameRuleGPoisonSwitch
 GameRule.GPoisonSwitch = nil
 
 ---第一个安全区半径。
@@ -386,28 +386,28 @@ GameRule.GPoisonSafeD0 = nil
 ---@type integer
 GameRule.GPoisonSafeT0 = nil
 
----@alias GameRuleAllowMidwayJoin
+---@alias __GameRuleAllowMidwayJoin
 ---| 0 # 禁止中途加入
 ---| 1 # 允许中途加入
 ---中途加入游戏。
----@type GameRuleAllowMidwayJoin
+---@type __GameRuleAllowMidwayJoin
 GameRule.AllowMidwayJoin = nil
 
----@alias GameRuleLifeNumTeamShare
+---@alias __GameRuleLifeNumTeamShare
 ---| 0 # 玩家独享生命数 或 不限制生命数
 ---| 1 # 队伍共用生命数
 ---生命数限制维度。
----@type GameRuleLifeNumTeamShare
+---@type __GameRuleLifeNumTeamShare
 GameRule.LifeNumTeamShare = nil
 
----@alias GameRuleViewMode
+---@alias __GameRuleViewMode
 ---| 0 # 禁止失败观战
 ---| 1 # 允许失败观战
 ---是否开启观战。
----@type GameRuleViewMode
+---@type __GameRuleViewMode
 GameRule.ViewMode = nil
 
----@alias GameRuleViewType
+---@alias __GameRuleViewType
 ---| 0 # 自由观战
 ---| 1 # 跟随屏幕
 ---| 2 # 自由观战，可切换至自由模式
@@ -419,7 +419,7 @@ GameRule.ViewType = nil
 ---@type integer
 GameRule.CountDown = nil
 
----@alias GameRuleScoreResetRound
+---@alias __GameRuleScoreResetRound
 ---| 0 # 开启回合模式
 ---| 1 # 关闭回合模式
 ---回合模式。
