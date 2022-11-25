@@ -3,6 +3,7 @@
   "displayName": "Miniworld Lua Script",
   "description": "Highlight syntax for Miniworld Lua Script.",
   "version": "0.0.1",
+  "publisher": "starlight-dev-team",
   "engines": {
     "vscode": "^1.0.0"
   },
